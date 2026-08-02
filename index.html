@@ -10,25 +10,11 @@
   <div class="card">
     <h2>Focus Playlist</h2>
 
-    <div id="yt-player-mount" class="yt-mount" aria-hidden="true"></div>
-
-    <div class="now-playing">
-      <div class="track-title" id="trackTitle">Loading playlist…</div>
-      <div class="track-index" id="trackIndex"></div>
+    <div class="player-frame-wrap">
+      <div id="yt-player-mount"></div>
     </div>
 
-    <div class="transport-row">
-      <button class="transport-btn" id="prevBtn" title="Previous track" aria-label="Previous track">⏮</button>
-      <button class="transport-btn transport-btn--main" id="playPauseBtn" title="Play" aria-label="Play">▶</button>
-      <button class="transport-btn" id="nextBtn" title="Next track" aria-label="Next track">⏭</button>
-    </div>
-
-    <div class="volume-row">
-      <span class="volume-icon">🔉</span>
-      <input type="range" min="0" max="100" value="50" class="volume-slider" id="volumeSlider" aria-label="Volume">
-    </div>
-
-    <div class="fallback-note" id="fallbackNote">
+    <div class="fallback-note">
       Prefer YouTube itself? <a href="https://www.youtube.com/playlist?list=PLgWT3kw4BFonWWKxr32XlDVqBIXs25oRQ" target="_blank" rel="noopener">Open playlist ↗</a>
     </div>
   </div>
