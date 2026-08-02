@@ -3,6 +3,7 @@
   --card:#1c1a18;
   --card-border:rgba(255,255,255,0.06);
   --accent:#c1794f;
+  --pill-bg:#26221f;
   --text:#f3ede6;
   --muted:#9a9089;
 }
@@ -18,31 +19,120 @@ html,body{
   background:var(--card);
   border:1px solid var(--card-border);
   border-radius:14px;
-  padding:24px;
+  padding:28px;
   margin:24px;
 }
 .card h2{
-  margin:0 0 16px 0;
+  margin:0 0 20px 0;
   font-size:17px;
   font-weight:700;
   color:var(--text);
 }
 
-.player-frame-wrap{
-  border-radius:10px;
+/* YouTube iframe is mounted here but kept visually hidden — audio-only,
+   custom-controlled playback matching the dashboard's dark aesthetic.
+   No YouTube branding, thumbnails, or ads are ever shown. */
+.yt-mount{
+  position:absolute;
+  width:1px;
+  height:1px;
   overflow:hidden;
-  background:#000;
-  aspect-ratio:16/9;
+  clip:rect(0 0 0 0);
 }
-.player-frame-wrap iframe{
-  display:block;
-  width:100%;
-  height:100%;
+
+.now-playing{
+  margin-bottom:28px;
+  min-height:40px;
+}
+.track-title{
+  font-size:16px;
+  font-weight:600;
+  color:var(--text);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.track-index{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+.transport-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+  margin-bottom:32px;
+}
+.transport-btn{
+  border:none;
+  border-radius:14px;
+  background:var(--pill-bg);
+  color:var(--text);
+  font-size:22px;
+  width:60px;
+  height:60px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.transport-btn:hover{
+  filter:brightness(1.15);
+}
+.transport-btn--main{
+  width:84px;
+  height:84px;
+  border-radius:50%;
+  background:var(--accent);
+  color:#1a1210;
+  font-size:28px;
+}
+.transport-btn:disabled{
+  opacity:0.4;
+  cursor:default;
+}
+
+.volume-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:24px;
+}
+.volume-icon{
+  font-size:16px;
+  opacity:0.8;
+}
+.volume-slider{
+  flex:1;
+  -webkit-appearance:none;
+  appearance:none;
+  height:6px;
+  border-radius:6px;
+  background:var(--pill-bg);
+  outline:none;
+}
+.volume-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  appearance:none;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:var(--accent);
+  cursor:pointer;
+}
+.volume-slider::-moz-range-thumb{
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  border:none;
+  background:var(--accent);
+  cursor:pointer;
 }
 
 .fallback-note{
-  margin-top:16px;
-  font-size:12.5px;
+  font-size:13px;
   color:var(--muted);
 }
 .fallback-note a{
